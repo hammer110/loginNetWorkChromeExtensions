@@ -1,0 +1,35 @@
+{
+  "name": "login",
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "icons": { "128": "login.png", "48": "login.png", "16": "login.png"},
+  "description": "utils created in brower for loginNetWork",
+  "permissions": [
+    "tabs",
+    "contextMenus",
+    "windows",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "browser_action":{
+    "default_title": "loginNetWork",
+    "default_icon": "login.png",
+    "default_popup": "popup.html"
+  },
+  "background" : {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "run_at" : "document_end",
+      "all_frames": true,
+      "js": ["css-sprite.js"]
+    }
+  ],
+  "web_accessible_resources": [
+      "style.css"
+  ]
+}
